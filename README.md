@@ -1,24 +1,67 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column            | Type    | Options                   |
+| ----------------- | ------- | ------------------------- |
+| nickname          | string  | null: false               |
+| email             | string  | null: false, unique: true |
+| password          | string  | null: false               |
+| family_name       | string  | null: false               |
+| first_name        | string  | null: false               |
+| family_name_kana  | string  | null: false               |
+| first_name_kana   | string  | null: false               |
+| date_of_birth     | integer | null: false                |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :products
+- has_many :purchases
 
-* Configuration
+## products テーブル
 
-* Database creation
+| Column             | Type       | Options           |
+| ------------------ | ---------- | ----------------- |
+| product_name       | string     | null: false       |
+| description        | text       | null: false       |
+| product_condition  | string     | null: false       |
+| user               | references | foreign_key: true |
+| price              | integer    | null: false       |
+| ship_from_area     | string     | null: false       |
+| delivery_days      | integer    | null: false       |
+| delivery_fee       | integer    | null: false       |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_many :purchases
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## purchases テーブル
 
-* ...
+| Column            | Type       | Options           |
+| ----------------- | ---------- | ----------------- |
+| user              | references | foreign_key: true |
+| product_name      | references | foreign_key: true |
+| purchase_date     | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :product
+
+## addresses テーブル
+
+| Column        | Type     | Options     |
+| ------------- | -------  | ----------- |
+| postal_code   | integer  | null: false |
+| state         | string   | null: false |
+| city          | string   | null: false |
+| brock_number  | integer  | null: false |
+| building      | string   | null: false |
+| phone_number  | integer  | null: false |
+
+### Association
+
+- belongs_to :purchase
+
