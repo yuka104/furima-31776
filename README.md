@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column            | Type    | Options                   |
-| ----------------- | ------- | ------------------------- |
-| nickname          | string  | null: false               |
-| email             | string  | null: false, unique: true |
-| password          | string  | null: false               |
-| family_name       | string  | null: false               |
-| first_name        | string  | null: false               |
-| family_name_kana  | string  | null: false               |
-| first_name_kana   | string  | null: false               |
-| date_of_birth     | integer | null: false                |
+| Column              | Type    | Options                   |
+| ------------------- | ------- | ------------------------- |
+| nickname            | string  | null: false               |
+| email               | string  | null: false, unique: true |
+| encrypted_password  | string  | null: false               |
+| family_name         | string  | null: false               |
+| first_name          | string  | null: false               |
+| family_name_kana    | string  | null: false               |
+| first_name_kana     | string  | null: false               |
+| birthday            | integer | null: false               |
 
 ### Association
 
@@ -22,18 +22,18 @@
 
 | Column             | Type       | Options           |
 | ------------------ | ---------- | ----------------- |
-| product_name       | string     | null: false       |
+| name               | string     | null: false       |
 | description        | text       | null: false       |
-| product_condition  | string     | null: false       |
+| condition          | string     | null: false       |
 | user               | references | foreign_key: true |
 | price              | integer    | null: false       |
-| ship_from_area     | string     | null: false       |
+| area               | string     | null: false       |
 | delivery_days      | integer    | null: false       |
-| delivery_fee       | integer    | null: false       |
+| fee                | integer    | null: false       |
 
 ### Association
 
-- has_many :purchases
+- has_one :purchases
 - belongs_to :user
 
 
@@ -42,13 +42,13 @@
 | Column            | Type       | Options           |
 | ----------------- | ---------- | ----------------- |
 | user              | references | foreign_key: true |
-| product_name      | references | foreign_key: true |
-| purchase_date     | references | foreign_key: true |
+| product           | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :product
+- has_one :address
 
 ## addresses テーブル
 
