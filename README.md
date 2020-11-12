@@ -24,12 +24,12 @@
 | ------------------ | ---------- | ----------------- |
 | name               | string     | null: false       |
 | description        | text       | null: false       |
-| condition          | string     | null: false       |
+| condition_id       | integer    | null: false       |
 | user               | references | foreign_key: true |
 | price              | integer    | null: false       |
-| area               | string     | null: false       |
-| delivery_days      | integer    | null: false       |
-| fee                | integer    | null: false       |
+| area_id            | integer    | null: false       |
+| delivery_days_id   | integer    | null: false       |
+| fee_id             | integer    | null: false       |
 
 ### Association
 
@@ -54,12 +54,12 @@
 
 | Column        | Type     | Options     |
 | ------------- | -------  | ----------- |
-| postal_code   | integer  | null: false |
+| postal_code   | string   | null: false |
 | state         | string   | null: false |
 | city          | string   | null: false |
-| brock_number  | integer  | null: false |
-| building      | string   | null: false |
-| phone_number  | integer  | null: false |
+| brock_number  | string   | null: false |
+| building      | string   |             |
+| phone_number  | string   | null: false |
 
 ### Association
 
