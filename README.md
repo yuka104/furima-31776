@@ -11,7 +11,7 @@
 | first_name          | string  | null: false               |
 | family_name_kana    | string  | null: false               |
 | first_name_kana     | string  | null: false               |
-| birthday            | data    | null: false               |
+| birthday            | date    | null: false               |
 
 ### Association
 
@@ -28,7 +28,7 @@
 | condition_id       | integer    | null: false       |
 | user               | references | foreign_key: true |
 | price              | integer    | null: false       |
-| area_id            | integer    | null: false       |
+| state_id           | integer    | null: false       |
 | delivery_days_id   | integer    | null: false       |
 | fee_id             | integer    | null: false       |
 
