@@ -52,14 +52,15 @@
 
 ## addresses テーブル
 
-| Column        | Type     | Options     |
-| ------------- | -------  | ----------- |
-| postal_code   | string   | null: false |
-| state         | string   | null: false |
-| city          | string   | null: false |
-| brock_number  | string   | null: false |
-| building      | string   |             |
-| phone_number  | string   | null: false |
+| Column        | Type        | Options     |
+| ------------- | ----------  | ----------- |
+| postal_code   | string      | null: false |
+| state         | string      | null: false |
+| city          | string      | null: false |
+| brock_number  | string      | null: false |
+| building      | string      |             |
+| phone_number  | string      | null: false |
+| purchase      | references  | null: false |
 
 ### Association
 
