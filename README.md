@@ -11,7 +11,7 @@
 | first_name          | string  | null: false               |
 | family_name_kana    | string  | null: false               |
 | first_name_kana     | string  | null: false               |
-| birthday            | integer | null: false               |
+| birthday            | data    | null: false               |
 
 ### Association
 
@@ -24,6 +24,7 @@
 | ------------------ | ---------- | ----------------- |
 | name               | string     | null: false       |
 | description        | text       | null: false       |
+| category_id        | integer    | null: false       |
 | condition_id       | integer    | null: false       |
 | user               | references | foreign_key: true |
 | price              | integer    | null: false       |
@@ -33,7 +34,7 @@
 
 ### Association
 
-- has_one :purchases
+- has_one :purchase
 - belongs_to :user
 
 
@@ -55,7 +56,7 @@
 | Column        | Type        | Options     |
 | ------------- | ----------  | ----------- |
 | postal_code   | string      | null: false |
-| state         | string      | null: false |
+| state_id      | integer     | null: false |
 | city          | string      | null: false |
 | brock_number  | string      | null: false |
 | building      | string      |             |
