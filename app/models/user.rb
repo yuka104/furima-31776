@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :email, uniqueness: true
   validates :birthday, presence: true
-  validates :password, format: { with: VALID_PASSWORD_REGEX }
+  validates :password, format: { with: /\A[a-z0-9]+\z/ }
   
   
   devise :database_authenticatable, :registerable,
