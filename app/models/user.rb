@@ -1,11 +1,23 @@
 class User < ApplicationRecord
-  validates :nickname, presence: true
-  validates :family_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ }
-  validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ }
-  validates :family_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
-  validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
+
+  with_options presence: true do
+    validates :nickname
+    validates :birthday
+
+    with_options format: { with:NAJME_REGEX } do
+      NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/
+      validates :family_name
+      validates :first_name
+    end
+
+    with_options format: { with:KATAKANA_REGEX } do
+    KATAKANA_REGEX = /\A[ァ-ヶー－]+\z/
+    validates :family_name_kana
+    validates :first_name_kana
+    end
+  end
+  
   validates :email, uniqueness: true
-  validates :birthday, presence: true
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze }
   
   devise :database_authenticatable, :registerable,
