@@ -5,7 +5,7 @@ class User < ApplicationRecord
     validates :birthday
 
     NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/
-    with_options format: { with:NAJME_REGEX } do
+    with_options format: { with:NAME_REGEX } do
       validates :family_name
       validates :first_name
     end
