@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :condition
   belongs_to :state
-
+  belongs_to :delivery_day
 
   with_options presence: true do
     validates :name
@@ -11,7 +11,7 @@ class Item < ApplicationRecord
     validates :category_id, numericality: { other_than: 1 } 
     validates :condition_id, numericality: { other_than: 1 } 
     validates :price
-    validates :state_id
+    validates :state_id, numericality: { other_than: 1 } 
     validates :delivery_days_id
     validates :fee_id
   end
