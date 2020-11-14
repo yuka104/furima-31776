@@ -4,6 +4,7 @@ class Item < ApplicationRecord
   belongs_to :condition
   belongs_to :state
   belongs_to :delivery_day
+  belongs_to :fee
 
   with_options presence: true do
     validates :name
@@ -12,8 +13,8 @@ class Item < ApplicationRecord
     validates :condition_id, numericality: { other_than: 1 } 
     validates :price
     validates :state_id, numericality: { other_than: 1 } 
-    validates :delivery_days_id
-    validates :fee_id
+    validates :delivery_days_id, numericality: { other_than: 1 } 
+    validates :fee_id, numericality: { other_than: 1 } 
   end
   validates :user, foreign_key: true
   belongs_to :user
