@@ -4,14 +4,14 @@ class User < ApplicationRecord
     validates :nickname
     validates :birthday
 
+    NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/
     with_options format: { with:NAJME_REGEX } do
-      NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/
       validates :family_name
       validates :first_name
     end
 
-    with_options format: { with:KATAKANA_REGEX } do
     KATAKANA_REGEX = /\A[ァ-ヶー－]+\z/
+    with_options format: { with:KATAKANA_REGEX } do
     validates :family_name_kana
     validates :first_name_kana
     end
