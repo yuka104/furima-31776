@@ -9,6 +9,6 @@ class Item < ApplicationRecord
     validates :delivery_days_id
     validates :fee_id
   end
-  
   validates :user, foreign_key: true
+  belongs_to :user
 end
