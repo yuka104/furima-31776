@@ -1,13 +1,12 @@
 class ItemsController < ApplicationController
 
-def index
-  @items = Items.order("created_at DESC")
-end
+  def index
+  end
 
-def new
-end
+  def new
+  end
 
-def created
+  def create
 end
 
 
