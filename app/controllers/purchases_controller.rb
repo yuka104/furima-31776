@@ -6,7 +6,13 @@ class PurchasesController < ApplicationController
   end
   
   def create
-    @purchase = PurchaseAddres.new(item_params)
+    @purchase = PurchaseAddress.new(purchase_params)
   end
   
+  private
+  def purchase_params
+    params.require(:purchase).permit(:authenticity_token, :purchase, :postal_code, :state_id, :city, :block_number, :building, :phone_number)
+ 
+  end
+
   end
