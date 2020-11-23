@@ -7,7 +7,7 @@ class PurchaseAddress
     validates :city
     validates :block_number
     validates :phone_number, format: {with: /\A\d{11}\z/, message: "can't be blank" }
-    validates :state_id, numericality: { other_than:1, message: "can't be blank" }
+    validates :state_id, numericality: { other_than:1, message: "must be other than 1" }
   end
 
 
